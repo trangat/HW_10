@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- create heading and button for scraping -->
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
+    </div>
+  </div>
+<!-- create Mars News and Weather section -->
+  <div class= "container news weather">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="news">
+            <h2>Latest Mars News</h2>
+            <h3 class="news_title">{{mars.News_Title}}</h3>
+            <p>{{mars.News_Blurb}}</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class = weather>
+          <h2>The Latest Weather on Mars</h2>
+          <h3 class="mars_weather">{{mars.Mars_Weather}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Create Featured Image section-->
+  <div class="container featured">
+    <div class = "row">
+      <div class = "col-md-8">
+        <div class="card bg-dark text-white">
+          <img src="{{mars.Mars_Image}}" class="card-img" alt="featured image">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Featured Mars Image</h5>
+          </div>
+        </div>
+      </div>
+      <div class = "col-md-4">
+        <div class = "table table striped table-sm table-responsive">
+          <h2>Mars Facts</h2>
+          {{ mars.Mars_Facts | safe}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- create hemispheres section -->
+  <div class="container hemispheres">
+    <div class="row">
+      <div class="col-md-4">
+      <h2>Mars Hemispheres</h2>
+      <break>
+     {% for hemisphere in mars.Hemisphere_Images %}
+      <div class="col-md-12 col-sm-3">
+        <div class="thumbnail">
+          <img src="{{ hemisphere.img_url }}" alt="hemispheres">
+          <div class="caption">
+              <h3>{{hemisphere.title}}</h3>
+          </div>
+        <div>
+      </div>
+    {% endfor %}
+
+  </div>
+  </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
