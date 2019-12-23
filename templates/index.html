@@ -22,17 +22,21 @@
   <div class= "container news weather">
     <div class="row">
       <div class="col-md-6">
-        <div class="news">
-            <h2>Latest Mars News</h2>
-            <h3 class="news_title">{{mars.News_Title}}</h3>
-            <p>{{mars.News_Blurb}}</p>
+        <div class="card" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Latest Mars News</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{mars.News_Title}}</h6>
+            <p class="card-text">{{mars.News_Blurb}}</p>
+          </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class = weather>
-          <h2>The Latest Weather on Mars</h2>
-          <h3 class="mars_weather">{{mars.Mars_Weather}}</h3>
-        </div>
+        <div class = "card" style="width: 25rem;">
+          <div class="card-body">
+            <h5> Latest Weather on Mars</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{mars.Mars_Weather}}</h6>
+          </div>
+        </div>   
       </div>
     </div>
   </div>
@@ -57,20 +61,22 @@
   </div>
   <!-- create hemispheres section -->
   <div class="container hemispheres">
+    <h2> Mars Hemispheres</h2>
     <div class="row">
-      <div class="col-md-4">
-      <h2>Mars Hemispheres</h2>
-      <break>
-     {% for hemisphere in mars.Hemisphere_Images %}
-      <div class="col-md-12 col-sm-3">
-        <div class="thumbnail">
-          <img src="{{ hemisphere.img_url }}" alt="hemispheres">
-          <div class="caption">
-              <h3>{{hemisphere.title}}</h3>
+      {% for hemisphere in mars.Hemisphere_Images %}
+        <div class = "col-md-3">
+          <div class="card mb-3">
+            <img src="{{ hemisphere.img_url }}" class="card-img-top" alt="hemispheres">
+              <div class="card-body">
+                <h5 class="card-title">{{hemisphere.title}}</h5>
+              </div>
           </div>
-        <div>
-      </div>
-    {% endfor %}
+        </div>
+      {% endfor %}
+    </div> 
+  </div>
+    
+    
 
   </div>
   </div>
